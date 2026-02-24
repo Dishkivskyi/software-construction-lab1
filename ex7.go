@@ -2,9 +2,14 @@ package main
 
 import "fmt"
 
+const (
+	MaxInt8Value  = 127
+	Custom16Value = 16383
+)
+
 func main() {
-	variable8 := int8(127)
-	variable16 := int16(16383)
+	variable8 := int8(MaxInt8Value)
+	variable16 := int16(Custom16Value)
 
 	fmt.Println("Приведення типів\n")
 
@@ -13,18 +18,18 @@ func main() {
 	fmt.Printf("uint16(variable8) = %-5d = %.16b\n", uint16(variable8), uint16(variable8))
 	fmt.Printf("uint8(variable16) = %-5d = %.16b\n", uint8(variable16), uint8(variable16))
 
-	// Завдання.
-	// 1. Створіть 2 змінні різних типів. Виконайте арифметичні операції.
+	performCalculations()
+}
 
-	var a int32 = 10
-	var b float32 = 5.5
+func performCalculations() {
+	var intVal int32 = 10
+	var floatVal float32 = 5.5
 
-	// Для виконання операції приводимо 'a' до типу float32
-	sum := float32(a) + b
-	product := float32(a) * b
+	sum := float32(intVal) + floatVal
+	product := float32(intVal) * floatVal
 
 	fmt.Println("\nВиконання завдання:")
-	fmt.Printf("Змінна a (int32): %d, Змінна b (float32): %f\n", a, b)
-	fmt.Printf("Сума (float32(a) + b): %f\n", sum)
-	fmt.Printf("Добуток (float32(a) * b): %f\n", product)
+	fmt.Printf("Змінна intVal: %d, Змінна floatVal: %f\n", intVal, floatVal)
+	fmt.Printf("Сума: %f\n", sum)
+	fmt.Printf("Добуток: %f\n", product)
 }
